@@ -9,6 +9,7 @@
 #include "snowman.hpp"
 #include <string>
 #include <array>
+using namespace std;
 
 namespace ariel {
 	
@@ -38,11 +39,6 @@ namespace ariel {
 		 *case 3: >
 		 *case 4: " " */
 		else {rigth_left_arm_part = left_down_rigth_up_arms(input_snowman);}
-	
-
-	/*strings for tow eyes*/
-	string left_eye_part = eye_R_or_L(input_snowman[LEFT_EYE]);
-	string rigth_eye_part = eye_R_or_L(input_snowman[RIGTH_EYE]);
 
 	string base_part = "\n ("+base(input_snowman[BASE])+")";
 
@@ -52,8 +48,7 @@ namespace ariel {
 	return all_snow_Man;
 	}
 
-	//array
-	/**
+	/*
 	*gets the input number for the snowman and checks if
 	*it's in the rigth range
 	*/
@@ -72,17 +67,13 @@ namespace ariel {
 		
 	}
 
-	void left_up_temp(const array<int ,MAX_INPUT_SIZE> &input_snowman){
-
-	}
-
 	/*case of lest arm up, (x==2)*/
 	string left_up(const array<int ,MAX_INPUT_SIZE> &input_snowman){
 		string LNR = eye_R_or_L(input_snowman[LEFT_EYE])+nose_mouth(input_snowman[NOSE_MOUTH])+eye_R_or_L(input_snowman[RIGTH_EYE]);
 		string TTT = torso(input_snowman[TORSO]);
 		
 		if(input_snowman[RIGHT_ARM]==RIGHT_ARM_UP)
-			{return "\\("+LNR+")/\n("+TTT+")";}
+			{return "\\("+LNR+")/\n  ("+TTT+")";}
 		return "\\("+LNR+")\n("+TTT+")"+rightArm(input_snowman[RIGHT_ARM]);
 		
 	}
@@ -92,12 +83,12 @@ namespace ariel {
 		string LNR = eye_R_or_L(input_snowman[LEFT_EYE])+nose_mouth(input_snowman[NOSE_MOUTH])+eye_R_or_L(input_snowman[RIGTH_EYE]);
 		string TTT = torso(input_snowman[TORSO]);
 
-
 		if(input_snowman[RIGHT_ARM] == RIGHT_ARM_UP)
 			{return "("+LNR+")/\n"+leftArm(input_snowman[LEFT_ARM])+"("+TTT+")";}
 		return "("+LNR+")\n"+leftArm(input_snowman[LEFT_ARM])+"("+TTT+")"+rightArm(input_snowman[RIGHT_ARM]);			
 		
 	}
+	
 	/**
 	* returns the hat -H : in case 1: Straw Hat : _===_
  	*                     in case 2: Mexican Hat:   ___
@@ -110,9 +101,9 @@ namespace ariel {
 	string hat (int x){
 		switch(x){
 			case 1 : return "_===_\n";
-			case 2 : return "___\n .....\n";
+			case 2 : return " ___\n .....\n";
 			case 3 : return "  _ \n  /_\\\n";
-			case 4 : return "  ___\n  (_*_)\n";
+			case 4 : return " ___\n (_*_)\n";
 			default : return "";
 		}
 	}
